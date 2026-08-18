@@ -397,10 +397,10 @@ export const services: ServiceDef[] = [
     url: "https://agent-api-listings.46-224-157-88.sslip.io",
     serviceUrl: "https://agent-api-listings.46-224-157-88.sslip.io",
     description:
-      "Prepare a validated mpp.dev service entry from caller-provided OpenAPI metadata without fetching a remote URL.",
+      "Prepare all compatible directory packages from caller-provided OpenAPI metadata without submitting to a directory or paying a directory fee.",
     categories: ["data", "web"],
     integration: "third-party",
-    tags: ["mpp", "openapi", "service-listing"],
+    tags: ["mpp", "openapi", "x402"],
     status: "active",
     docs: {
       homepage: "https://agent-api-listings.46-224-157-88.sslip.io/",
@@ -419,6 +419,12 @@ export const services: ServiceDef[] = [
       {
         route: "POST /mpp/v1/mpp-package",
         desc: "Prepare a validated mpp.dev service entry from caller-provided OpenAPI metadata without fetching a remote URL.",
+        amount: "200000",
+        unitType: "request",
+      },
+      {
+        route: "POST /mpp/v1/packages",
+        desc: "Prepare all compatible directory packages from caller-provided OpenAPI metadata without submitting to a directory or paying a directory fee.",
         amount: "200000",
         unitType: "request",
       },
