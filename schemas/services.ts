@@ -390,6 +390,41 @@ export const services: ServiceDef[] = [
     ],
   },
 
+  // ── Agent API Listings ───────────────────────────────────────────────
+  {
+    id: "agent-api-listings",
+    name: "Agent API Listings",
+    url: "https://agent-api-listings.46-224-157-88.sslip.io",
+    serviceUrl: "https://agent-api-listings.46-224-157-88.sslip.io",
+    description:
+      "Prepare a validated mpp.dev service entry from caller-provided OpenAPI metadata without fetching a remote URL.",
+    categories: ["data", "web"],
+    integration: "third-party",
+    tags: ["mpp", "openapi", "service-listing"],
+    status: "active",
+    docs: {
+      homepage: "https://agent-api-listings.46-224-157-88.sslip.io/",
+      llmsTxt: "https://agent-api-listings.46-224-157-88.sslip.io/llms.txt",
+      apiReference:
+        "https://agent-api-listings.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans (AI agent)",
+      url: "https://agent-api-listings.46-224-157-88.sslip.io",
+    },
+    realm: "agent-api-listings.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "POST /mpp/v1/mpp-package",
+        desc: "Prepare a validated mpp.dev service entry from caller-provided OpenAPI metadata without fetching a remote URL.",
+        amount: "200000",
+        unitType: "request",
+      },
+    ],
+  },
+
   // ── agentfax ───────────────────────────────────────────────────────────
   {
     id: "agentfax",
