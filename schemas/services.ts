@@ -310,6 +310,86 @@ export const services: ServiceDef[] = [
     ],
   },
 
+  // ── Grant Opportunity Search ──────────────────────────────────────────
+  {
+    id: "grant-opportunity-search",
+    name: "Grant Opportunity Search",
+    url: "https://grant-search.46-224-157-88.sslip.io",
+    serviceUrl: "https://grant-search.46-224-157-88.sslip.io",
+    description:
+      "Search current U.S. federal grant opportunities by technology, agency, award ceiling, and deadline with official source links.",
+    categories: ["data", "search"],
+    integration: "third-party",
+    tags: ["grants", "funding", "federal", "opportunities", "provenance"],
+    status: "active",
+    docs: {
+      homepage: "https://grant-search.46-224-157-88.sslip.io/docs",
+      llmsTxt: "https://grant-search.46-224-157-88.sslip.io/llms.txt",
+      apiReference: "https://grant-search.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans",
+      url: "https://grant-search.46-224-157-88.sslip.io",
+    },
+    realm: "grant-search.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /mpp/v1/search",
+        desc: "Search federal grant opportunities",
+        amount: "20000",
+        unitType: "request",
+      },
+      {
+        route: "POST /mpp/v1/scan",
+        desc: "Run up to ten grant searches",
+        amount: "200000",
+        unitType: "request",
+      },
+    ],
+  },
+
+  // ── OSHA Inspection Search ────────────────────────────────────────────
+  {
+    id: "osha-inspection-search",
+    name: "OSHA Inspection Search",
+    url: "https://osha-search.46-224-157-88.sslip.io",
+    serviceUrl: "https://osha-search.46-224-157-88.sslip.io",
+    description:
+      "Search official U.S. OSHA inspection records by establishment, state, date, and violation status with source links.",
+    categories: ["data", "search"],
+    integration: "third-party",
+    tags: [
+      "osha",
+      "inspections",
+      "workplace-safety",
+      "compliance",
+      "provenance",
+    ],
+    status: "active",
+    docs: {
+      homepage: "https://osha-search.46-224-157-88.sslip.io/docs",
+      llmsTxt: "https://osha-search.46-224-157-88.sslip.io/llms.txt",
+      apiReference: "https://osha-search.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans",
+      url: "https://osha-search.46-224-157-88.sslip.io",
+    },
+    realm: "osha-search.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /mpp/v1/search",
+        desc: "Search OSHA inspection records",
+        amount: "20000",
+        unitType: "request",
+      },
+    ],
+  },
+
   // ── agentfax ───────────────────────────────────────────────────────────
   {
     id: "agentfax",
