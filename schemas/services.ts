@@ -317,7 +317,7 @@ export const services: ServiceDef[] = [
     url: "https://grant-search.46-224-157-88.sslip.io",
     serviceUrl: "https://grant-search.46-224-157-88.sslip.io",
     description:
-      "Search current U.S. federal grant opportunities by technology, agency, award ceiling, and deadline with official source links.",
+      "Grant consultants, R&D teams, and monitoring agents get current grants or $0.02 portfolio changes with official source links, instead of repeated searches.",
     categories: ["data", "search"],
     integration: "third-party",
     tags: ["grants", "funding", "federal", "opportunities", "provenance"],
