@@ -472,7 +472,40 @@ export const services: ServiceDef[] = [
     ],
   },
 
-  // ── agentfax ───────────────────────────────────────────────────────────
+  // ── Payment Reconciliation API ───────────────────────────────────
+  {
+    id: "payment-reconciliation",
+    name: "Payment Reconciliation API",
+    url: "https://payment-recon.46-224-157-88.sslip.io",
+    serviceUrl: "https://payment-recon.46-224-157-88.sslip.io",
+    description:
+      "Reconciled incoming-stablecoin payment report for one public recipient address on Tempo or Base: transfers, totals, and per-sender breakdown over a 7-day default window (31-day max).",
+    categories: ["data", "web"],
+    integration: "third-party",
+    tags: ["mpp", "x402", "payments", "reconciliation"],
+    status: "active",
+    docs: {
+      homepage: "https://payment-recon.46-224-157-88.sslip.io/docs",
+      apiReference: "https://payment-recon.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans (AI agent)",
+      url: "https://payment-recon.46-224-157-88.sslip.io",
+    },
+    realm: "payment-recon.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /mpp/v1/report",
+        desc: "Reconciled incoming-stablecoin payment report for one public recipient address on Tempo or Base: transfers, totals, and per-sender breakdown over a 7-day default window (31-day max).",
+        amount: "100000",
+        unitType: "request",
+      },
+    ],
+  },
+
+  // ── agentfax ───────────────────────────────────────────
   {
     id: "agentfax",
     name: "agentfax",
