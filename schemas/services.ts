@@ -505,6 +505,40 @@ export const services: ServiceDef[] = [
     ],
   },
 
+  // ── Listing Drift Watchdog ──────────────────────────────────────
+  {
+    id: "listing-drift-watchdog",
+    name: "Listing Drift Watchdog",
+    url: "https://listing-watchdog.46-224-157-88.sslip.io",
+    serviceUrl: "https://listing-watchdog.46-224-157-88.sslip.io",
+    description:
+      "Compares a paid API's live 402 challenge (price, network, pay-to) against its CDP Bazaar, x402scan, and MPPScan listings from a longitudinal snapshot store and reports the drift.",
+    categories: ["data", "web"],
+    integration: "third-party",
+    tags: ["mpp", "x402", "listings", "monitoring"],
+    status: "active",
+    docs: {
+      homepage: "https://listing-watchdog.46-224-157-88.sslip.io/docs",
+      apiReference:
+        "https://listing-watchdog.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans (AI agent)",
+      url: "https://listing-watchdog.46-224-157-88.sslip.io",
+    },
+    realm: "listing-watchdog.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /mpp/v1/drift",
+        desc: "Compares a paid API's live 402 challenge (price, network, pay-to) against its CDP Bazaar, x402scan, and MPPScan listings from a longitudinal snapshot store and reports the drift.",
+        amount: "100000",
+        unitType: "request",
+      },
+    ],
+  },
+
   // ── agentfax ───────────────────────────────────────────
   {
     id: "agentfax",
