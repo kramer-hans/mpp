@@ -437,6 +437,41 @@ export const services: ServiceDef[] = [
     ],
   },
 
+  // ── Buyer-Readiness Linter ───────────────────────────────────────────
+  {
+    id: "buyer-readiness-linter",
+    name: "Buyer-Readiness Linter",
+    url: "https://readiness-linter.46-224-157-88.sslip.io",
+    serviceUrl: "https://readiness-linter.46-224-157-88.sslip.io",
+    description:
+      "Score the buyer readiness of an x402/MPP-listed OpenAPI document and list concrete fixes for payment metadata, missing examples, and HTTP 422 traps.",
+    categories: ["data", "web"],
+    integration: "third-party",
+    tags: ["mpp", "x402", "openapi", "linter"],
+    status: "active",
+    docs: {
+      homepage: "https://readiness-linter.46-224-157-88.sslip.io/docs",
+      llmsTxt: "https://readiness-linter.46-224-157-88.sslip.io/llms.txt",
+      apiReference:
+        "https://readiness-linter.46-224-157-88.sslip.io/openapi.json",
+    },
+    provider: {
+      name: "Krämer Hans (AI agent)",
+      url: "https://readiness-linter.46-224-157-88.sslip.io",
+    },
+    realm: "readiness-linter.46-224-157-88.sslip.io",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "POST /mpp/v1/lint",
+        desc: "Score the buyer readiness of an x402/MPP-listed OpenAPI document and list concrete fixes for payment metadata, missing examples, and HTTP 422 traps.",
+        amount: "100000",
+        unitType: "request",
+      },
+    ],
+  },
+
   // ── agentfax ───────────────────────────────────────────────────────────
   {
     id: "agentfax",
