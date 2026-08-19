@@ -347,6 +347,12 @@ export const services: ServiceDef[] = [
         amount: "200000",
         unitType: "request",
       },
+      {
+        route: "POST /mpp/v1/change-intelligence",
+        desc: "Read one bounded page of new and changed grants, deadline risks, and award-value changes from a maintained portfolio scope.",
+        amount: "20000",
+        unitType: "request",
+      },
     ],
   },
 
