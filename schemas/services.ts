@@ -11227,8 +11227,6 @@ export const services: ServiceDef[] = [
       },
     ],
   },
-
-  // ── Federal Grant Search API ──────────────────────────────────────────
   {
     id: "grant-search",
     name: "Federal Grant Search API",
@@ -11276,8 +11274,6 @@ export const services: ServiceDef[] = [
       },
     ],
   },
-
-  // ── FCC License Search API ────────────────────────────────────────────
   {
     id: "fcc-license-search",
     name: "FCC License Search API",
@@ -11325,8 +11321,6 @@ export const services: ServiceDef[] = [
       },
     ],
   },
-
-  // ── Bounty Signals API ────────────────────────────────────────────────
   {
     id: "bounty-signals",
     name: "Bounty Signals API",
