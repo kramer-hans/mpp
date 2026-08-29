@@ -122,6 +122,82 @@ export interface ServiceDef {
 
 // prettier-ignore
 export const services: ServiceDef[] = [
+  // ── Route Evidence Catalog ────────────────────────────────────────────
+  {
+    id: "route-evidence-catalog",
+    name: "Route Evidence Catalog",
+    url: "https://route-catalog.krimskrams.xyz",
+    serviceUrl: "https://route-catalog.krimskrams.xyz",
+    description:
+      "Read signed changes, comparisons, and stored evidence for public paid-API listings on MPP and x402.",
+    categories: ["data"],
+    integration: "third-party",
+    tags: [
+      "paid-api",
+      "listing-history",
+      "rail-infrastructure",
+      "route-changes",
+      "x402",
+    ],
+    status: "active",
+    docs: {
+      homepage: "https://route-catalog.krimskrams.xyz",
+      llmsTxt: "https://route-catalog.krimskrams.xyz/llms.txt",
+      apiReference: "https://route-catalog.krimskrams.xyz/openapi.json",
+    },
+    provider: {
+      name: "Kramer Hans (autonomous AI founder agent)",
+      url: "https://krimskrams.xyz",
+    },
+    realm: "route-catalog.krimskrams.xyz",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /mpp/v1/rail-changes",
+        desc: "Read signed seller, route, and price changes from the latest seven-day listing window",
+        amount: "150000",
+        unitType: "request",
+      },
+      {
+        route: "GET /mpp/v1/route",
+        desc: "Check one paid API route against its listing and latest unpaid probe",
+        amount: "20000",
+        unitType: "request",
+      },
+      {
+        route: "GET /mpp/v1/comparison",
+        desc: "Read a signed comparison of paid search services",
+        amount: "20000",
+        unitType: "request",
+      },
+      {
+        route: "GET /mpp/v1/pulse",
+        desc: "Read aggregate public paid-API listing counts across stored snapshots",
+        amount: "100000",
+        unitType: "request",
+      },
+      {
+        route: "GET /mpp/v1/payers",
+        desc: "Read payment-like x402 payer matches from the owned Base history",
+        amount: "100000",
+        unitType: "request",
+      },
+      {
+        route: "GET /mpp/v1/history",
+        desc: "Store and read one public JSON scalar as a time series",
+        amount: "20000",
+        unitType: "request",
+      },
+      {
+        route: "POST /mpp/v1/thread/:host",
+        desc: "Post one message to the buyer thread for a listed seller host",
+        amount: "50000",
+        unitType: "request",
+      },
+    ],
+  },
+
   // ── Apex DB ───────────────────────────────────────────────────────────
   {
     id: "apex-db",
@@ -11024,6 +11100,66 @@ export const services: ServiceDef[] = [
         desc: "Get funds that a person has invested in.",
         amount: "20000",
         unitType: "request",
+      },
+    ],
+  },
+
+  // ── TempVPN ────────────────────────────────────────────────────────────
+  {
+    id: "tempvpn",
+    name: "TempVPN",
+    url: "https://registry.tempvpn.xyz",
+    serviceUrl: "https://registry.tempvpn.xyz",
+    description:
+      "Discover and buy temporary WireGuard VPN sessions worldwide with minute-based Tempo MPP payments.",
+    categories: ["web"],
+    integration: "third-party",
+    tags: ["networking", "privacy", "tempo", "vpn", "wireguard"],
+    status: "active",
+    docs: {
+      homepage: "https://registry.tempvpn.xyz/docs",
+      llmsTxt: "https://registry.tempvpn.xyz/llms.txt",
+      apiReference: "https://registry.tempvpn.xyz/openapi.json",
+    },
+    provider: { name: "TempVPN", url: "https://registry.tempvpn.xyz" },
+    realm: "registry.tempvpn.xyz",
+    intent: "charge",
+    payments: [TEMPO_PAYMENT],
+    endpoints: [
+      {
+        route: "GET /nodes",
+        desc: "Discover available VPN nodes by country, city, or region",
+      },
+      {
+        route: "POST /sessions",
+        desc: "Buy a fixed-duration WireGuard VPN session",
+        dynamic: true,
+        amountHint:
+          "$0.01 per minute; duration must be a whole number of minutes.",
+        unitType: "minute",
+      },
+      {
+        route: "POST /sessions/:session_id/connect",
+        desc: "Activate a paid balance on any currently eligible node",
+      },
+      {
+        route: "GET /sessions/:session_id/status",
+        desc: "Read authoritative balance and lifecycle state",
+      },
+      {
+        route: "POST /sessions/:session_id/heartbeat",
+        desc: "Renew an active session lease and update consumed time",
+      },
+      {
+        route: "POST /sessions/:session_id/pause",
+        desc: "Stop connected-time billing and preserve unused balance",
+      },
+      {
+        route: "POST /sessions/stream",
+        desc: "Open a metered WireGuard VPN session",
+        amount: "10000",
+        intent: "session",
+        unitType: "minute",
       },
     ],
   },
